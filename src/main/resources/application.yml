@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  host: http://localhost
+  env: default
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-h5sgswff.us.auth0.com/
+  flyway:
+    enabled: true
+#    locations: classpath:src/main/resources/db/migration
+  jackson:
+    deserialization.fail-on-unknown-properties: false
+    serialization.FAIL_ON_EMPTY_BEANS: false
+    default-property-inclusion: non_null
+
+logging.level.org.springframework:
+  jdbc.core: INFO
+  security: WARN
+auth0:
+  audience: elastic-play
